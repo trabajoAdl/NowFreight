@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  </head>
+  <style>
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #0CB7F2, #0C86F2);
+  border-radius: 6px; /* Bordes redondeados */
+  border: 3px solid #FFFF; /* Espacio entre el pulgar y el borde */
+}
+body::-webkit-scrollbar {
+  width: 12px; /* Tamaño del scroll vertical */
+  height: 12px; /* Tamaño del scroll horizontal (si lo hay) */
+}
+
+body::-webkit-scrollbar-track {
+  background: #FFFF; /* Color del fondo del track */
+}
+    @font-face {
+        font-family: 'NeueHaasDisplayBold';
+        src: url('Font/NeueHaasDisplayBold.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'NeueHaasDisplayLight';
+        src: url('Font/NeueHaasDisplayLight.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: 'NeueHaasDisplayLightItalic';
+        src: url('Font/NeueHaasDisplayLightItalic.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: 'NeueHaasDisplayBoldItalic';
+        src: url('Font/NeueHaasDisplayBoldItalic.ttf') format('truetype');
+      }
+      .text-bold-italic{
+        font-family: 'NeueHaasDisplayBoldItalic';
+      }
+    *{
+      margin: 0;
+      padding: 0;
+      font-family: 'NeueHaasDisplayBold', sans-serif;
+    }
+    header{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+			justify-content: space-around;
+			transition: 0.7s;
+			padding: 30px 20px;
+			z-index: 10;
+    }
+    
+
+    nav{
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
+    header ul{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    header ul li{
+      list-style: none;
+    }
+    header ul li a{
+      position: relative;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0 15px;
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-weight: 450;
+      transition: 0.7s;
+      color: white;
+      font-size: 18px;
+    }
+    /*header.abajo .logo,
+		header.abajo ul li a{
+			color: #000;
+		}*/
+    header.abajo{
+      background: linear-gradient(to bottom, #0CB7F2, #0C86F2);
+		}
+    .bg-fondo-degradado{
+      background: linear-gradient(to bottom, #0CB7F2, #0C86F2);
+      height: 100vh;
+    }
+
+    .bg-fondo-degradado-reponsive{
+      background: linear-gradient(to bottom, #0CB7F2, #0C86F2);
+    }
+    h1{
+      font-size: 55px;
+      color: white;
+      line-height: 1.2;
+    }
+    p{
+      font-size: 25px;
+      color: white;
+      font-family: 'NeueHaasDisplayLight';
+      opacity: 0;
+      transition: opacity 1s ease 3.5s;
+    }
+    .bg-button{
+      background: #2d3a70;
+      color: white;
+    }
+    a:hover{
+      color: #dedede;
+      font-weight: 550;
+    }
+
+    .text-now{
+      color: #2d3a70;
+    }
+    .text-soluciones{
+      font-size: 60px;
+    }
+    .tex-solu-descr{
+      font-family: 'NeueHaasDisplayLight';
+      font-size: 30px;
+    }
+    .text-img{
+      font-family: 'NeueHaasDisplayLight';
+    }
+    /*anicion de escribir*/
+    .escribiendo {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid white;
+        animation: escribir 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+      }
+
+      @keyframes escribir {
+        from { width: 0 }
+        to { width: 100% }
+      }
+
+      @keyframes blink {
+        50% { border-color: transparent }
+      }
+
+
+      .fade-in-image {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1.5s ease, transform 1.5s ease;
+      }
+
+      .fade-in-image.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 1384px) {
+        header ul li a{
+          font-size: 15px;
+        }
+        .cotiza_tu_carga{
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 1262px) {
+        header ul li a{
+          font-size: 12px;
+        }
+        .cotiza_tu_carga{
+          font-size: 12px;
+        }
+      }
+
+      @media (max-width: 1142px) {
+        header ul li a{
+          font-size: 11px;
+        }
+        .cotiza_tu_carga{
+          font-size: 11px;
+        }
+      }
+
+      .btn-a{
+        font-size: 18px;
+      }
+      @media (max-width: 991px) {
+        header ul li a{
+          font-size: 11px;
+          letter-spacing: 0px;
+        }
+        .cotiza_tu_carga{
+          font-size: 10px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        #menu{
+          display: none;
+        }
+        #menu_reponsive{
+          display: block;
+        }
+      }
+      @media (max-width: 1438px){
+        .btn-a{
+          font-size: 15px;
+        }
+      }
+      @media (max-width: 416px){
+        .btn-a{
+          font-size: 11px;
+        }
+      }
+      @media (max-width: 615px){
+        h1{
+          font-size: 40px;
+        }
+        p{
+          font-size: 20px;
+        }
+      }
+
+      @media (max-width: 451px){
+        h1{
+          font-size: 25px;
+        }
+        p{
+          font-size: 15px;
+        }
+      }
+
+      @media (max-width: 991px){
+        .text-soluciones{
+          font-size: 40px;
+        }
+        .tex-solu-descr{
+          font-size: 20px;
+        }
+      }
+
+      
+
+      .linea-separador-pequeno{
+        background: #0cb7f2;
+        height: 20px;
+        width: 30%;
+      }
+      .linea-separador{
+        background: #0cb7f2;
+        height: 8px;
+        width: 100%;
+      }
+
+      @media (max-width: 900px){
+        .linea-separador-pequeno{
+          height: 10px;
+        }
+        .linea-separador{
+          height: 3px;
+        }
+      }
+      .contenedor{
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      .contenedor2{
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      .contenedor3{
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      .contenedor4{
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      .wsp{
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      .text-icons{
+        color: #2d3a70;
+      }
+      .text-icons-descrip{
+        color: #2d3a70;
+        font-family: 'NeueHaasDisplayLight';
+      }
+
+      .text-italic{
+        font-family: 'NeueHaasDisplayLight';
+      }
+
+
+
+
+  .whatsapp-floating{
+    position: fixed;
+    z-index: 999;
+    right: 10px;
+    bottom: 54px;
+    opacity: 1;
+}
+.whatsapp-floating .circle{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    border-radius: 32px;
+    background: #00D33A;
+
+    /* btn default */
+    box-shadow: 10px 10px 35px 0px rgba(76, 72, 150, 0.35);
+}
+.whatsapp-floating .circle .wsp-icon{
+    display: flex;
+    padding: 13px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 32px;
+}
+.whatsapp-floating .circle .text{
+    color: #00D33A;
+    text-align: center;
+
+    /* buttons */
+    font-size: 0px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 0;
+    letter-spacing: 0;
+    transition:  all 0.45s;
+}
+.whatsapp-floating .circle .wsp-icon *{
+    transition:  all 0.45s;
+}
+.whatsapp-floating:hover .circle{
+    display: flex;
+    padding-left: 15px;
+    justify-content: flex-end;
+    align-items: center;
+
+    background: #fff;
+}
+.whatsapp-floating:hover .circle .wsp-icon *{
+    fill: #00D33A;
+}
+.whatsapp-floating:hover .circle .text{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; /* 166.667% */
+    letter-spacing: 0.36px;
+}
+
+/*mobile */
+@media all and ( max-width: 1024px ){
+  .whatsapp-floating {
+        right: 15px;
+        bottom: 35px;
+    }
+}
+
+.text-porque{
+  font-size: 30px;
+  font-family: 'NeueHaasDisplayLight';
+}
+
+.form-group {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 22px;
+      color: white;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid white;
+      outline: none;
+      font-family: 'NeueHaasDisplayLightItalic';
+    }
+
+    ::placeholder {
+      color: white;
+      opacity: 0.7;
+      font-family: 'NeueHaasDisplayLightItalic';
+    }
+
+    .bg-footer{
+      background: #2d3a70;
+    }
+    .separacion{
+      letter-spacing: 2px;
+    }
+    @media(max-width: 750px){
+        .text-copir{
+          font-size: 12px;
+        }
+    }
+    @media(max-width: 572px){
+        .text-copir{
+          font-size: 8px;
+        }
+        .separacion{
+        letter-spacing: 0px;
+      }
+    }
+    </style>
+  <body>
+    <header class="container-fluid">
+      <div class="row d-flex justify-content-center">
+
+        <div class="col-4 col-xxl-3 col-xl-4 col-lg-3 col-md-2 d-flex justify-content-center d-none d-md-block">
+          <div class="col-5 col-xxl-6 col-xl-5 col-lg-8 col-md-11">
+            <a href="#"><img class="img-fluid logo" src="Logo.png" alt=""></a>
+          </div>
+        </div>
+
+        <div class="col-8 col-xxl-8  col-xl-8 col-lg-9 col-md-10 d-none d-md-block">
+          <nav id="navbar-example2">  
+            <ul>
+              <li class="border-end border-light border-2"><a href="#scrollspyHeading1">Servicios</a></li>
+              <li class="border-end border-light border-2"><a href="#scrollspyHeading2">Productos</a></li>
+              <li><a href="#scrollspyHeading3">¿Porque Nostros?</a></li>
+            </ul>
+            <ul>
+              <li><a href="#"><span><i class='bx bxs-user' style="font-size: 20px;"></i></span> ACCESO</a></li>
+              <li><a href="#scrollspyHeading4" class="btn bg-button btn-outline-primary cotiza_tu_carga">COTIZA TU CARGA</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-12 d-block d-md-none d-flex justify-items-around">
+
+          <div class="col-3 ms-3">
+            <a class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+              <i class='bx bx-menu'></i>
+            </a>
+
+            <div class="offcanvas offcanvas-start bg-fondo-degradado" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+              <div class="offcanvas-header">
+                <div class="col-5">
+                  <a href="#"><img class="img-fluid" src="Logo.png" alt=""></a>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body d-flex align-items-center h-100">
+                <div class="row ">
+                  <div class="col-12 p-4 text-center">
+                    <a class="text-decoration-none text-light" href="#scrollspyHeading1">Servicios</a>
+                  </div>
+                  <div class="col-12 p-4 text-center">
+                    <a class="text-decoration-none text-light" href="#scrollspyHeading2">Productos</a>
+                  </div>
+                  <div class="col-12 p-4 text-center">
+                    <a class="text-decoration-none text-light" href="#scrollspyHeading3">¿Porque Nostros?</a>
+                  </div>
+                  <div class="col-12 p-4 text-center">
+                    <a class="text-decoration-none text-light" href="#"><span><i class='bx bxs-user' style="font-size: 20px;"></i></span> ACCESO</a>
+                  </div>
+                  <div class="col-12 p-4 text-center">
+                    <a href="#scrollspyHeading4" class="btn bg-button btn-outline-primary cotiza_tu_carga">COTIZA TU CARGA</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-5">
+            <div class="col-12">
+              <a href="#"><img class="img-fluid logo" src="Logo.png" alt=""></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+    </header>
+
+    <section class="container-fluid bg-fondo-degradado" >
+
+      <div class="row d-flex justify-content-center align-items-center d-lg-flex justify-content-lg-around d-md-flex justify-content-md-center h-100">
+
+        <div class="col-12 col-sm-12 col-xxl-8 col-xl-9 col-lg-9 col-md-12 mt-5">
+          <div class="row mt-4">
+
+            <div class="col-12 col-sm-12 d-flex justify-content-center">
+              <div class="col-11 col-sm-11 col-lg-9">
+                <h1><span class="escribiendo">Tu carga, <br>nuestro Compromiso.</span></h1>
+                <p id="parrafo">En Now Freight conectamos continetes con eficiencia, tecnologia y confianza. Optimiza tu logística internacional con soluciones ágiles y seguras.</p>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-12 d-flex justify-content-evenly mt-4">
+              <div class="col-12 col-sm-12 col-lg-9 d-flex justify-content-center d-xxl-flex justify-xxl-content-stard d-xl-flex justify-xl-content-stard d-lg-flex justify-lg-content-stard d-md-flex justify-content-md-start">
+                <div class="col-5 col-sm-5 col-md-5 d-grid">
+                  <a class="btn bg-button btn-outline-primary btn-a" href="#scrollspyHeading4" type="button">¡Cotiza tu Envio!</a>
+                </div>
+                <div class="col-1 col-sm-1 col-md-1"></div>
+                <div class="col-5 col-sm-5 col-md-5 d-grid">
+                    <a class="btn btn-outline-light btn-a" href="#scrollspyHeading4" type="button">Habla con un Asesor</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+
+        <div class="col-12 col-sm-5 col-xxl-4 col-xl-3 col-lg-3 col-md-12 d-flex justify-content-center d-xl-flex justify-content-xl-start d-md-flex justify-content-md-center">
+          <div class="col-10 col-sm-12 col-lg-11 col-md-4">
+            <img id="imagenAnimada" src="assets/Imagen 1-08.png" class="img-fluid fade-in-image" alt="">
+          </div>
+        </div>
+
+      </div> 
+      
+    </section>
+    <div id="scrollspyHeading1"></div>
+    <br><br><br><br><br><br>
+
+
+    <section class="container contenedor">
+      
+      <div class="row" >
+        <div class="col-12 col-md-5 col-lg-4 mx-auto">
+          <div class="col-11 col-md-12 col-lg-11">
+            <img class="img-fluid" src="celular.png" alt="">
+          </div>
+        </div>
+        <div class="col-12 col-md-7 col-lg-8 mt-5 mt-lg-0 mt-md-0">
+          <h5  class="text-now text-soluciones">Soluciones logísticas <br>a tu medida</h5>
+          <h6 class="text-now tex-solu-descr">Gestionamos tu carga internancional con eficiencia en cada etapa del proceso. Nuestro equipo te acompaña desde la recolección hasta la entrega final.</h6>
+          <div class="col linea-separador-pequeno">
+          </div>
+        </div>
+        <div class="col-12 col-lg-12"><br><br></div>
+        </div>
+      </div>
+      <br><br><br>
+      <div class="row">
+        <div class="col-10 col-md-4 col-lg-2 mx-auto mt-5 mt-lg-0 mt-md-0">
+          <img class="img-fluid" src="assets/Imagenes-09.png" alt="">
+          <h5 class="text-center text-img mt-3">Transporte marítimo y aéreo</h5>
+        </div>
+        <div class="col-10 col-md-4 col-lg-2 mx-auto mt-5 mt-lg-0 mt-md-0">
+          <img class="img-fluid" src="assets/Imagenes-10.png" alt="">
+          <h5 class="text-center text-img mt-3">Carga consolidad y completa</h5>
+        </div>
+        <div class="col-10 col-md-4  col-lg-2 mx-auto mt-5 mt-lg-0 mt-md-0">
+          <img class="img-fluid" src="assets/Imagenes-11.png" alt="">
+          <h5 class="text-center text-img mt-3">Despacho aduanero</h5>
+        </div>
+        <div class="col-10 col-md-6 col-lg-2 mx-auto mt-5 mt-lg-0 mt-md-0">
+          <img class="img-fluid" src="assets/Imagenes-12.png" alt="">
+          <h5 class="text-center text-img mt-3">Almacenamiento y distributción</h5>
+        </div>
+        <div class="col-10 col-md-6 col-lg-2 mx-auto mt-5 mt-lg-0 mt-md-0">
+          <img class="img-fluid" src="assets/Imagenes-13.png" alt="">
+          <h5 class="text-center text-img mt-3">Seguimiento en tiempo real</h5>
+        </div>
+        <div class="col-12 col-lg-12"><br><br><br></div>
+      </div>
+    </section>
+    <div id="scrollspyHeading2"></div>
+    <br><br><br>
+
+
+    <section class="container contenedor2">
+      <div class="row">
+        <br><br><br><br><br><br><br><br>
+        <div class="col linea-separador"></div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-7 col-lg-7 mt-lg-5 mt-0">
+          <div class="col-12 col-md-10 col-lg-10 mt-lg-5 mt-0">
+            <h5 class="text-now text-soluciones">Control total <br>desde tu pantalla</h5>
+            <h6 class="text-now tex-solu-descr">Con nuestra plataforma digital, puedes cotiza, rastrear y gestionar tu carga desde cualquier lugar del mundo. Optimizar tus tiempo y toma decisiones con información real.</h6>
+            <div class="col linea-separador-pequeno">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-5 col-lg-5 mt-lg-0 mt-5">
+          <div class="col-12 d-flex justify-content-around">
+            <div class="col-2">
+              <img class="img-fluid" src="assets/Esquema Web-14.png" alt="">
+            </div>
+            <div class="col-9">
+              <h4 class="text-icons">Rastreo 24/7</h4>
+              <h6 class="text-icons-descrip">Monitorea tu carga en tiempo real desde cualquier dispositivo.</h6>
+            </div>
+          </div>
+
+          <div class="col-12 d-flex justify-content-around mt-5">
+            <div class="col-2">
+              <img class="img-fluid" src="assets/Esquema Web-15.png" alt="">
+            </div>
+            <div class="col-9">
+              <h4 class="text-icons">Documentación Digital</h4>
+              <h6 class="text-icons-descrip">Gestiona todos tus documentos de forma rápida y segura desde nuestra plataforma.</h6>
+            </div>
+          </div>
+
+          <div class="col-12 d-flex justify-content-around mt-5">
+            <div class="col-2">
+              <img class="img-fluid" src="assets/Esquema Web-16.png" alt="">
+            </div>
+            <div class="col-9">
+              <h4 class="text-icons">Notificaciones Automáticas</h4>
+              <h6 class="text-icons-descrip">Recibe alertas personalizadas sobre el estado de tu carga.</h6>
+            </div>
+          </div>
+
+          <div class="col-12 d-flex justify-content-around mt-5">
+            <div class="col-2">
+              <img class="img-fluid" src="assets/Esquema Web-17.png" alt="">
+            </div>
+            <div class="col-9">
+              <h4 class="text-icons">Reportes Personalizados</h4>
+              <h6 class="text-icons-descrip">Accede a reportes claros y adaptados a tus necesidades logísticas.</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="scrollspyHeading3"></div>
+    <br><br><br><br>
+
+    <section class="container contenedor3">
+      <div class="row">
+        <br><br><br><br><br><br><br><br>
+        <div class="col linea-separador"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-12 d-flex justify-content-center">
+          <div class="col-12 col-lg-10">
+            <h3 class="text-now text-soluciones text-center">¿Por qué elegir Now Freight?</h3>
+            <h5 class="text-now tex-solu-descr text-center">Combinar experiencia logística con tecnología de punta para ofrecer un servicio transparente, agil y confiable.</h5>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12 col-lg-12 mt-3">
+          <div class="row">
+
+            <div class="col-12 col-md-6 col-lg-4 mt-lg-5 mt-5">
+              <div class="col-12 col-lg-11 bg-info p-3 d-flex justify-content-around rounded-4">
+                <div class="col-2">
+                  <img class="img-fluid" src="assets/VECTORES-19.png" alt="">
+                </div>
+                <div class="col-9">
+                  <h3 class="text-light text-porque">Atención personalizada</h3>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-12 col-md-6 col-lg-4 mt-lg-5 mt-5">
+              <div class="col-12 col-lg-11 bg-info p-3 d-flex justify-content-around  rounded-4">
+                <div class="col-2">
+                  <img class="img-fluid" src="assets/VECTORES-22.png" alt="">
+                </div>
+                <div class="col-9">
+                  <h3 class="text-light text-porque">Red Global de Agentes</h3>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-12 col-md-6 col-lg-4 mt-lg-5 mt-5">
+              <div class="ccol-12 col-lg-11 bg-info p-3 d-flex justify-content-around rounded-4">
+                <div class="col-2">
+                  <img class="img-fluid" src="assets/VECTORES-18.png" alt="">
+                </div>
+                <div class="col-9">
+                  <h3 class="text-light text-porque">Alta taza de puntualidad</h3>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-12 col-md-6 col-lg-6 d-flex justify-content-lg-end justify-content-center mt-5">
+              <div class="col-12 col-lg-7 bg-info p-3 d-flex justify-content-around rounded-4 mx-lg-3 mx-0">
+                <div class="col-2">
+                  <img class="img-fluid" src="assets/VECTORES-20.png" alt="">
+                </div>
+                <div class="col-9 mt-2 mt-md-0">
+                  <h3 class="text-light text-porque">Soporte Multidioma</h3>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-12 col-lg-6 d-flex justify-content-lg-start justify-content-center mt-5">
+              <div class="col-12 col-lg-7 bg-info p-3 d-flex justify-content-around rounded-4 ms-lg-3 ms-0">
+                <div class="col-2">
+                  <img class="img-fluid" src="assets/VECTORES-21.png" alt="">
+                </div>
+                <div class="col-9 mt-2 mt-md-4">
+                  <h3 class="text-light text-porque ">Transparencia legal</h3>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <div id="scrollspyHeading4"></div>
+    <br><br><br><br><br><br>
+
+    <section class="container contenedor4">
+      <div class="row">
+        <br><br><br><br><br><br>
+        <div class="col linea-separador"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-6 d-flex justify-content-center mt-5">
+          <div class="col-12 col-lg-10 mt-lg-5 mt-0">
+            <br class="d-none d-lg-block">
+            <h3 class="text-now text-soluciones text-bold-italic">"Hablemos de tu próximo envío"</h3>
+            <h5 class="text-now tex-solu-descr">¿Listo para mover tu carga con la seguridad y tecnología que mereces?, Escribenos y un de nuestros expertos se pondrá en contacto contigo.</h5>
+            <div class="col linea-separador-pequeno"></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6 p-2 d-flex justify-content-center mt-5">
+          <div class="col-11 col-lg-9 bg-fondo-degradado-reponsive rounded-4 p-4 p-lg-5">
+            <div class="col-12 bg-light rounded-3 text-center ">
+              <h3 class="text-now p-2">CONTACTENME</h3>
+            </div>
+            <br><br>
+            <div class="col-12">
+              <div class="form-group">
+                <input type="text" placeholder="Nombre">
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <input type="text" placeholder="Empresa">
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <input type="text" placeholder="Tipo de carga">
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <input type="text" placeholder="País de origen y destino">
+              </div>
+            </div>
+            <br>
+            <div class="col-12 d-flex justify-content-center">
+              <div class="col-6 d-grid">
+                <a class="btn bg-button btn-outline-primary cotiza_tu_carga" href="#">COTIZA AHORA</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <br><br><br><br><br><br><br><br>
+
+    <section class="container-fluid bg-footer">
+      <div class="row p-5">
+        <div class="col-12 col-lg-12 d-flex justify-content-center">
+          <div class="col-5 col-lg-2 mx-auto">
+            <img class="img-fluid" src="Logo.png" alt="">
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-12 d-flex justify-content-center mt-4">
+          <ul class="d-flex justify-content-around list-unstyled separacion">
+            <li class="p-2 border-end border-light "><a class="text-decoration-none text-italic text-light text-copir" href="#scrollspyHeading1">Servicios</a></li>
+            <li class="p-2 border-end border-light "><a class="text-decoration-none text-italic text-light text-copir" href="#scrollspyHeading2">Productos</a></li>
+            <li class="p-2"><a class="text-decoration-none text-italic text-light text-copir" href="#scrollspyHeading3">¿Porque Nosotros?</a></li>
+          </ul>
+        </div>
+        <div class="col-12 d-flex justify-content-center mt-4">
+          <div class="col-11 text-center border-top border-light">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12 col-lg-12 d-flex justify-content-center mt-5 mx-auto">
+          <div class="col-3 col-md-2 col-lg-1 d-flex justify-content-center">
+            <div class="col-5">
+              <img class="img-fluid" src="assets/REDES-23.png" alt="">
+            </div>
+          </div>
+          <div class="col-3 col-md-2 col-lg-1 d-flex justify-content-center">
+            <div class="col-5">
+              <img class="img-fluid" src="assets/REDES-24.png" alt="">
+            </div>
+          </div>
+          <div class="col-3 col-md-2 col-lg-1 d-flex justify-content-center">
+            <div class="col-5">
+              <img class="img-fluid" src="assets/REDES-25.png" alt="">
+            </div>
+          </div>
+          <div class="col-3 col-md-2 col-lg-1 d-flex justify-content-center">
+            <div class="col-5">
+              <img class="img-fluid" src="assets/REDES-26.png" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-12 d-flex justify-content-center mt-5">
+          <div class="col-12 col-lg-12 d-flex justify-content-evenly">
+              <div class="col-4 col-lg-4 text-center">
+                <a class="text-light text-italic text-decoration-none text-copir" href="#">Politicas de Privacidad</a>
+              </div>
+    
+              <div class="col-4 col-lg-4 text-center">
+                <a class="text-light text-italic text-decoration-none text-copir" href="#">Terminos y Condiciones</a>
+              </div>
+    
+              <div class="col-4 col-lg-4 text-center">
+                <a class="text-light text-italic text-decoration-none text-copir" href="#">© Copyright 2025 | Now Freight</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <div class="whatsapp-floating fadeInUp">
+      <a class="circle text-decoration-none wsp" href="https://wa.me/+51922605488" target="_blank">
+        <span class="text">¡Resolvemos tus dudas!</span>
+        <div class="wsp-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
+            <path d="M32.3085 5.52187C28.7545 1.95937 24.0214 0 18.9915 0C8.60937 0 0.161161 8.44821 0.161161 18.8304C0.161161 22.1469 1.02634 25.3871 2.67188 28.2455L0 38L9.98348 35.379C12.7317 36.8804 15.8277 37.6692 18.983 37.6692H18.9915C29.3652 37.6692 38 29.221 38 18.8388C38 13.8089 35.8625 9.08437 32.3085 5.52187ZM18.9915 34.4969C16.1754 34.4969 13.4187 33.742 11.0183 32.317L10.45 31.9777L4.52946 33.5299L6.10714 27.7536L5.73393 27.1598C4.16473 24.6661 3.34196 21.7906 3.34196 18.8304C3.34196 10.204 10.3652 3.1808 19 3.1808C23.1817 3.1808 27.1089 4.80937 30.0607 7.76964C33.0125 10.7299 34.8277 14.6571 34.8192 18.8388C34.8192 27.4737 27.6179 34.4969 18.9915 34.4969ZM27.5754 22.7746C27.1089 22.5371 24.7933 21.4004 24.3607 21.2478C23.9281 21.0866 23.6143 21.0103 23.3004 21.4853C22.9866 21.9603 22.0875 23.0121 21.8076 23.3344C21.5362 23.6482 21.2563 23.6906 20.7897 23.4531C18.0246 22.0705 16.2094 20.9848 14.3857 17.8549C13.9022 17.0237 14.8692 17.083 15.7683 15.2848C15.921 14.971 15.8446 14.6996 15.7259 14.4621C15.6071 14.2246 14.6656 11.9089 14.2754 10.9674C13.8938 10.0513 13.5036 10.1786 13.2152 10.1616C12.9437 10.1446 12.6299 10.1446 12.3161 10.1446C12.0022 10.1446 11.4933 10.2634 11.0607 10.7299C10.6281 11.2049 9.41518 12.3415 9.41518 14.6571C9.41518 16.9728 11.1031 19.2121 11.3321 19.5259C11.5696 19.8397 14.6487 24.5897 19.3732 26.6339C22.3589 27.9232 23.5295 28.0335 25.0223 27.8129C25.9299 27.6772 27.8045 26.6763 28.1946 25.5737C28.5848 24.471 28.5848 23.5295 28.4661 23.3344C28.3558 23.1223 28.042 23.0036 27.5754 22.7746Z" fill="white"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".contenedor", {
+      scrollTrigger: {
+        trigger: ".contenedor",
+        start: "top 80%", // cuando el top del div llegue al 80% del viewport
+        toggleActions: "play none none none"
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out"
+    });
+
+    gsap.to(".contenedor2", {
+      scrollTrigger: {
+        trigger: ".contenedor2",
+        start: "top 80%", // cuando el top del div llegue al 80% del viewport
+        toggleActions: "play none none none"
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out"
+    });
+
+    gsap.to(".contenedor3", {
+      scrollTrigger: {
+        trigger: ".contenedor3",
+        start: "top 80%", // cuando el top del div llegue al 80% del viewport
+        toggleActions: "play none none none"
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out"
+    });
+
+    gsap.to(".contenedor4", {
+      scrollTrigger: {
+        trigger: ".contenedor4",
+        start: "top 80%", // cuando el top del div llegue al 80% del viewport
+        toggleActions: "play none none none"
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out"
+    });
+
+    gsap.to(".wsp", {
+      scrollTrigger: {
+        trigger: ".wsp",
+        start: "top 80%", // cuando el top del div llegue al 80% del viewport
+        toggleActions: "play none none none"
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out"
+    });
+  </script>
+
+    <script>
+      // Mostrar párrafo después de escribir el H1
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.getElementById('parrafo').style.opacity = '1';
+        }, 20); // un poco después del efecto
+      });
+
+      window.addEventListener('load', () => {
+        const imagen = document.getElementById('imagenAnimada');
+        setTimeout(() => {
+          imagen.classList.add('visible');
+        }, 100); // medio segundo de delay, puedes ajustarlo
+      });
+    </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const offcanvasElement = document.getElementById('staticBackdrop');
+
+    // Bootstrap 5 necesita el objeto del componente para usar .hide()
+    const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
+
+    // Escucha todos los enlaces dentro del offcanvas
+    const links = offcanvasElement.querySelectorAll('a[href^="#"]');
+
+    links.forEach(link => {
+      link.addEventListener('click', function () {
+        offcanvas.hide(); // Cierra el offcanvas
+      });
+    });
+  });
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      window.addEventListener("scroll", function(){
+        var header = document.querySelector("header");
+
+        header.classList.toggle("abajo",window.scrollY>0);
+      })
+    </script>
+  </body>
+</html>
